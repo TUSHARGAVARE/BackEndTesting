@@ -1,0 +1,25 @@
+package authtest;
+
+import org.testng.annotations.Test;
+import static io.restassured.RestAssured.*;
+
+public class PreEmptiveAuthTest2 {
+
+	@Test
+	public void PreEmptvAuthTest()
+	{
+		//pre-condition(basic Auth)
+		given()
+		.auth().oauth2("eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJsZUN3YUNPai00RXVlbzJkTFFrTmZuLXh2M0F3Nm5ZdWZtS0pINXBFWkNNIn0.eyJleHAiOjE3MTk0NjIyNTQsImlhdCI6MTcxOTQ2MDQ1NCwianRpIjoiYzE5MGI1NWUtMzgzMi00ODVhLWJjOGYtMmJhNDEwZDJiN2E2IiwiaXNzIjoiaHR0cDovLzQ5LjI0OS4yOC4yMTg6ODE4MC9hdXRoL3JlYWxtcy9uaW56YSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI0ODVlYTJhYi1kY2MzLTQwOGItOTUxZi04NGMwM2JmZDAwMmYiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJuaW56YS1jbGllbnQiLCJzZXNzaW9uX3N0YXRlIjoiNWQ0ZDc0NGUtYjNhYy00NGUzLTllMDItYjZjMTBmOTY4MDIwIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vNDkuMjQ5LjI4LjIxODo4MDkxIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJkZWZhdWx0LXJvbGVzLW5pbnphIiwib2ZmbGluZV9hY2Nlc3MiLCJhZG1pbiIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwic2lkIjoiNWQ0ZDc0NGUtYjNhYy00NGUzLTllMDItYjZjMTBmOTY4MDIwIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJybWd5YW50cmEifQ.e3V1DK_nnl1GbP1I0aVfksg_gd3h6QUegrSoISoTPu8RAIfQP_U9cg_d0lJM2peZqP-ruULkH2P9D3dZd_iOkYTKgVeXteAjXNpzRGo-9eKMWCIzpxYeTyxoohwaYBg9C1WBLnKWG4QKac282ESkJYEvBOlSOxwmY2RzK8SWpGHeTnrXyHLZDqRn5kv-2Zq5pbdJ-wCq4mR3TF1hCkrUfhJ5SMB08z7dvt-zzvX1U3YJz6zdZRkKZ9uClYLK3CQ8MuZf2bAHASb1Fs5b023MSxU9V_LFtwLWwlQrqtBaNdCv4dKIptuUhv8kqVZTmztV1WVT5sMPf23lZxYcDLj0dg")
+		.log().all()
+		//Execution
+		.when()
+		.get("http://49.249.28.218:8091/projects")
+		
+		//Validation
+		.then()
+		.log().all();
+	}
+
+}
+// username & password is encrypted but will be visible & passed in Header of the request only
